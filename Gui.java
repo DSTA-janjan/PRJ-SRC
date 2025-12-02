@@ -1,23 +1,64 @@
-package CCE105;
+import java.util.Scanner;
 
+public class Main {
 
-/**
- * Gui class for the porjet <br>
- * could say the front end part
- */
-public class Gui {
-	
 	public static void main(String args[]) {
 		Queue q = new Queue();
+		 Scanner scanner = new Scanner(System.in);
 
-		q.load();
-		// q.enqueue("John Christopher Damasco", 2);
-		
-		
-		q.display();
-		System.out.println(q.peek(1, "front"));
-		System.out.println(q.peek(1, "rear"));
-		System.out.println(q.peek(2, "front"));
-		System.out.println(q.peek(2, "rear"));
+
+		while (true) {
+			System.out.println();
+			System.out.println("=== BANK QUEUE SYSTEM ===");
+			System.out.println("1. Add customer");
+			System.out.println("2. Serve next at available counter");
+			System.out.println("3. Transfer customer from REGULAR to EXPRESS");
+			System.out.println("4. Display queue snapshots");
+			System.out.println("5. End-of-day report and exit");
+			System.out.print("Choose option: ");
+
+			int choice;
+			try {
+				choice = Integer.parseInt(scanner.nextLine());
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid input. Please enter a number 1-5.");
+				continue;
+			}
+
+			switch (choice) {
+				case 1:
+					
+					System.out.print("Enter customer name: ");
+					String name = scanner.nextLine().trim();
+
+					System.out.print("Enter transaction type: ");
+					String type = scanner.nextLine().trim();
+
+					System.out.print("Enter priority (EXPRESS/REGULAR): ");
+					String priority = scanner.nextLine().trim();
+
+					q.enqueue(name, type);
+					break;
+
+				case 3:
+					System.out.print("Enter name of customer to transfer to EXPRESS: ");
+					String transferName = scanner.nextLine().trim();
+					break;
+
+				case 4:
+					q.display()();
+					break;
+
+				case 5:
+					System.out.println("End-of-day report written to 'end_of_day_report.csv'.");
+
+					break;
+				default:
+					System.out.println("Please choose a valid option (1-5).");
+					break;
+			}
+		}
+
+		scanner.close();
 	}
-}
+}a

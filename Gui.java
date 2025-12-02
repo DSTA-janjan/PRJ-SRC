@@ -9,7 +9,7 @@ public class Main {
 
 		while (true) {
 			System.out.println();
-			System.out.println("=== BANK QUEUE SYSTEM ===");
+			System.out.println("=== AIRPORT BOARDING QUEUE ===");
 			System.out.println("1. Add customer");
 			System.out.println("2. Serve next at available counter");
 			System.out.println("3. Transfer customer from REGULAR to EXPRESS");
@@ -62,3 +62,4 @@ public class Main {
 		scanner.close();
 	}
 }a
+

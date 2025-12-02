@@ -230,32 +230,36 @@ public class Queue {
  * for the sake of cleanliness
  */
 class FileHandler {
-	private File queue = new File("Boarding.txt");
+	
+	private File queue = new File("Queue.txt");
+	
+	public FileHandler() {
+		
+		try {
+			if (!queue.exists()) {
+				queue.createNewFile();
+			}
+		} catch (IOException e) {
+			System.out.println("Could not create Queue.txt: " + e.getMessage());
+		}
+	}
 	
 	/**
-	 * Writes things in the main textfile <br>
-	 * I know, very descriptive
-	 * 
+	 * Writes things in the main text file.
+	 *
 	 * @param p : Passenger ADT
 	 * @throws IOException
 	 */
 	public void write(Passenger p) throws IOException {
-		if (queue.exists()) {
-			try (FileWriter fw = new FileWriter(queue, true)) {
-				fw.write(String.format("%-30s | %-10s%n", p.getName(), p.getGroupString()));
-			}
+		// Create the file if it somehow doesn't exist yet
+		if (!queue.exists()) {
+			queue.createNewFile();
+		}
+		
+		try (FileWriter fw = new FileWriter(queue, true)) {
+			fw.write(String.format("%-30s | %-10s%n", p.getName(), p.getGroupString()));
 		}
 	}
-
-    /**
-     * Create ra
-     */
-    public void create() {
-        try {
-            queue.createNewFile();
-        }
-        catch (IOException e) {}
-    }
 	
 	/**
 	 * Loader for the starting up of the  <p>

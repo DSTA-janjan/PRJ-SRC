@@ -50,7 +50,7 @@ public class Main {
 					break;
 
 				case 5:
-					System.out.println("End-of-day report written to 'end_of_day_report.csv'.");
+					System.out.println("End-of-day report written to 'end_of_day_report.txt'.");
 
 					break;
 				default:
@@ -62,6 +62,7 @@ public class Main {
 		scanner.close();
 	}
 }a
+
 
 
 

@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Queue queue = new Queue();
+        Queue q = new Queue();
         Scanner scanner = new Scanner(System.in);
 
         boolean run = true;
@@ -42,7 +42,7 @@ public class Main {
                         System.out.println("Group cannot be empty. Defaulting to REGULAR.");
                         group = "REGULAR";
                     }
-                    queue.checkIn(name, group);
+                    q.checkIn(name, group);
                     break;
 
                 case 2:
@@ -59,7 +59,7 @@ public class Main {
                     break;
 
                 case 4:
-                    queue.displayQueues();
+                    q.display();
                     break;
 
                 case 5:
@@ -104,3 +104,4 @@ public class Main {
         scanner.close();
     }
 }
+

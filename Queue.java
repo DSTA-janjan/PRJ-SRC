@@ -142,7 +142,18 @@ public class Queue {
     } 
 
     public void Board() {
-
+		Passenger next;
+        if (!priorityQueue.isEmpty()) {
+            next = priorityQueue.removeFirst();
+        } else if (!regularQueue.isEmpty()) {
+            next = regularQueue.removeFirst();
+        } else {
+            System.out.println("No passengers to board.");
+            return null;
+        }
+        boardedPassengers.add(next);
+        System.out.println("Boarded: " + next);
+        return next;
     }
 	
     /**
@@ -265,3 +276,4 @@ class FileHandler {
 		return hold;
 	}
 }
+

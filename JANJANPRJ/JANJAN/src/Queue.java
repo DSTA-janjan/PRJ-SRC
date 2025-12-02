@@ -230,7 +230,19 @@ public class Queue {
  * for the sake of cleanliness
  */
 class FileHandler {
-	private File queue = new File("Boarding.txt");
+	
+	private File queue = new File("Queue.txt");
+	
+	public FileHandler() {
+		
+		try {
+			if (!queue.exists()) {
+				queue.createNewFile();
+			}
+		} catch (IOException e) {
+			System.out.println("Could not create Queue.txt: " + e.getMessage());
+		}
+	}
 	
 	public FileHandler() {
 		
@@ -244,9 +256,8 @@ class FileHandler {
 	}
 	
 	/**
-	 * Writes things in the main textfile <br>
-	 * I know, very descriptive
-	 * 
+	 * Writes things in the main text file.
+	 *
 	 * @param p : Passenger ADT
 	 * @throws IOException
 	 */
@@ -260,7 +271,10 @@ class FileHandler {
 			fw.write(String.format("%-30s | %-10s%n", p.getName(), p.getGroupString()));
 		}
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97944f6630104af69f504232964885a57d3a9116
 	
 	/**
 	 * Loader for the starting up of the  <p>

@@ -1,4 +1,4 @@
-package CCE105;
+package JANJAN;
 import java.util.Scanner;
 
 public class Main {

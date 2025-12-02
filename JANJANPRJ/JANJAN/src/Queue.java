@@ -1,4 +1,4 @@
-package CCE105;
+package JANJAN;
 
 import java.util.LinkedList;
 import java.io.*;
@@ -230,8 +230,7 @@ public class Queue {
  * for the sake of cleanliness
  */
 class FileHandler {
-	private String dir = "src/JANJANPRJ/";
-	private File queue = new File(dir + "Queue.txt");
+	private File queue = new File("Boarding.txt");
 	
 	/**
 	 * Writes things in the main textfile <br>

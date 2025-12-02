@@ -50,7 +50,7 @@ public class Main {
                     break;
 
                 case 3:
-                    Passenger next = queue.viewNext();
+                    Passenger next = q.viewNext();
                     if (next == null) {
                         System.out.println("No passengers waiting to board.");
                     } else {
@@ -70,7 +70,7 @@ public class Main {
                         break;
                     }
                     try {
-                        queue.loadFromCsv(loadPath);
+                        q.loadFromCsv(loadPath);
                     } catch (IOException e) {
                         System.out.println("Failed to load manifest: " + e.getMessage());
                     }
@@ -104,4 +104,5 @@ public class Main {
         scanner.close();
     }
 }
+
 

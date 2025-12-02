@@ -21,12 +21,6 @@ public class Main {
             System.out.print("Choose option: ");
 
             int choice;
-            try {
-                choice = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number 1-7.");
-                continue;
-            }
 
             switch (choice) {
                 case 1:
@@ -104,5 +98,6 @@ public class Main {
         scanner.close();
     }
 }
+
 
 

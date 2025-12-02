@@ -1,0 +1,43 @@
+public void loadFromCsv(String filePath) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            boolean first = true;
+            while ((line = reader.readLine()) != null) {
+                line = line.trim();
+                if (line.isEmpty()) continue;
+
+                // Optionally skip header
+                if (first && line.toLowerCase().startsWith("name,")) {
+                    first = false;
+                    continue;
+                }
+                first = false;
+
+                String[] parts = line.split(",");
+                if (parts.length < 2) continue;
+
+                String name = parts[0].trim();
+                String group = parts[1].trim();
+                checkIn(name, group);
+            }
+        }
+        System.out.println("Manifest loaded from CSV: " + filePath);
+    }
+
+    /**
+     * Export the boarding order to a CSV file.
+     * Format: name,group,position
+     */
+    public void exportBoardingOrderToCsv(String filePath) throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write("name,group,position");
+            writer.newLine();
+            for (int i = 0; i < boardedPassengers.size(); i++) {
+                Passenger p = boardedPassengers.get(i);
+                int position = i + 1;
+                writer.write(p.getName() + "," + p.getGroup() + "," + position);
+                writer.newLine();
+            }
+        }
+        System.out.println("Boarding order exported to: " + filePath);
+    }

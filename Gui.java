@@ -28,20 +28,20 @@ public class Main {
 			switch (choice) {
 				case 1:
 					
-					System.out.print("Enter customer name: ");
+					System.out.print("Enter passenger name: ");
 					String name = scanner.nextLine().trim();
 
 					System.out.print("Enter transaction type: ");
 					String type = scanner.nextLine().trim();
 
-					System.out.print("Enter priority (EXPRESS/REGULAR): ");
+					System.out.print("Enter priority (VIP/REGULAR): ");
 					String priority = scanner.nextLine().trim();
 
 					q.enqueue(name, type);
 					break;
 
 				case 3:
-					System.out.print("Enter name of customer to transfer to EXPRESS: ");
+					System.out.print("Enter name of passenger  to transfer to EXPRESS: ");
 					String transferName = scanner.nextLine().trim();
 					break;
 
@@ -62,5 +62,6 @@ public class Main {
 		scanner.close();
 	}
 }a
+
 
 

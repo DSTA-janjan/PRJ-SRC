@@ -10,10 +10,10 @@ public class Main {
 		while (true) {
 			System.out.println();
 			System.out.println("=== AIRPORT BOARDING QUEUE ===");
-			System.out.println("1. Add customer");
-			System.out.println("2. Serve next at available counter");
-			System.out.println("3. Transfer customer from REGULAR to EXPRESS");
-			System.out.println("4. Display queue snapshots");
+            System.out.println("1. Check-in passenger");
+            System.out.println("2. Board next passenger");
+            System.out.println("3. View next passenger to board");
+            System.out.println("4. Display queues and counts");
 			System.out.println("5. End-of-day report and exit");
 			System.out.print("Choose option: ");
 
@@ -62,4 +62,5 @@ public class Main {
 		scanner.close();
 	}
 }a
+
 

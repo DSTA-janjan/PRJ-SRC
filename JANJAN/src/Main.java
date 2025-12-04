@@ -32,9 +32,13 @@ public class Main {
 					String name = scanner.nextLine();
 
 					System.out.print("Enter priority (VIP/REGULAR): ");
-					int type = scanner.nextInt();
-					scanner.nextLine(); // Consume newline
-					
+					int type;
+					try {
+						type = scanner.nextInt();
+					} catch (Exception e) {
+						System.out.println("Invalid input. Please enter a valid number.");
+						return;
+					}
 					q.enqueue(name, type);
 					break;
 					

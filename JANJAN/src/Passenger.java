@@ -1,4 +1,4 @@
-package JANJAN;
+
 
 
 /**
@@ -51,4 +51,3 @@ public class Passenger {
 	}
 
 }
-

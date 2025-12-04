@@ -1,7 +1,5 @@
-package JANJAN;
-
-import java.util.LinkedList;
 import java.io.*;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -21,6 +19,7 @@ public class Queue {
 	 * @param
 	 * 	type : VIP or regular | 1 or 2
 	 */
+    //Access modifier ------  PARAMETER 
 	public int enqueue(String name, int type) {
 		queue.add(new Passenger(name, type));
 		System.out.println("Na queue na boss");
@@ -30,7 +29,7 @@ public class Queue {
         catch (IOException e) {
 		}
 		load();
-		return 1;
+		return 1; // RETURN TYPE ; INT
 	}
 	
 	/**
@@ -46,7 +45,7 @@ public class Queue {
             String[] vip = new String[countVIP()];
             
             int vp = 0, rg = 0;
-            for (int i = 0; i < queue.size(); i++) {
+            for (int i = 0; i > queue.size(); i++) {
                 if (queue.get(i).getGroup() == 1) {
                     vip[vp] = queue.get(i).getName();
                     vp++;
@@ -150,6 +149,7 @@ public class Queue {
                 if(enger.getGroup() == 1) {
                     System.out.println(enger.getName() + " has boarded the plane.");
                     queue.remove(enger);
+                    fh.delete(enger);
                     return;
                 }
             }
@@ -157,9 +157,11 @@ public class Queue {
                 if(enger.getGroup() == 2) {
                     System.out.println(enger.getName() + " has boarded the plane.");
                     queue.remove(enger);
+                    fh.delete(enger);
                     return;
                 }
             }
+            load();
         }
     }
 	
@@ -168,7 +170,7 @@ public class Queue {
      */
 	public void load() {
 		try {
-			System.out.println("loaded");
+			// System.out.println("loaded");
 			queue = fh.load();
 		}
 		catch (IOException e) {}
@@ -180,7 +182,7 @@ public class Queue {
      * 
      * @return
      */
-	private int countVIP() {
+	public int countVIP() {
         int vips = 0;
         try {
             if (queue.isEmpty()) {
@@ -202,7 +204,7 @@ public class Queue {
      * note: IN linkedlist, not IN the textfile
      * @return
      */
-	private int countRegular() {
+	public int countRegular() {
         int regular = 0;
         try {
             if (queue.isEmpty()) {
@@ -260,6 +262,55 @@ class FileHandler {
 			fw.write(String.format("%-30s | %-10s%n", p.getName(), p.getGroupString()));
 		}
 	}
+
+    private void overWrite(LinkedList<Passenger> senger) {
+        try {
+            if (!queue.exists()) {
+                queue.createNewFile();
+            }
+            
+            // System.out.println("mao ni");
+            // for (Passenger e : senger)
+            //     System.out.println(e.getName());
+
+            FileWriter fw = new FileWriter(queue);
+            for (Passenger nger : senger) {
+                fw.write(String.format("%-30s | %-10s%n", nger.getName(), nger.getGroupString()));
+            }
+            fw.close();
+        }
+        catch (IOException e) {}
+    }
+
+    public void delete(Passenger p){
+        LinkedList<Passenger> hold = new LinkedList<>();
+        try {
+            // int i = 0;
+            try (Scanner sc = new Scanner(new FileReader(queue))) {
+                
+                while (sc.hasNextLine()) {
+                    // System.out.println(i);
+                    String[] holder = sc.nextLine().split("\\|");
+                    String name = holder[0].trim();
+                    String type = holder[1].trim();
+                    // System.out.println(name);
+                    if (p.getName().equals(name)) {
+                        // System.out.println("hitakn ko");
+                        continue;
+                    }
+                    hold.add(new Passenger(name, type));
+                    // i++;
+                }
+            }  
+        }
+        catch (FileNotFoundException e){}
+
+        // System.out.println("mao ni");
+        // for (Passenger e : hold)
+        //     System.out.println(e.getName());
+
+        overWrite(hold);
+    }
 
 	
 	/**

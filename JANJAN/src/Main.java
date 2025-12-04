@@ -1,4 +1,3 @@
-package JANJAN;
 import java.util.Scanner;
 
 public class Main {
@@ -7,7 +6,7 @@ public class Main {
 		Queue q = new Queue();
 		 Scanner scanner = new Scanner(System.in);
 
-
+         q.load();
 		while (true) {
 			System.out.println();
 			System.out.println("=== AIRPORT BOARDING QUEUE ===");
@@ -15,7 +14,7 @@ public class Main {
             System.out.println("2. Board next passenger");
             System.out.println("3. View next passenger to board");
             System.out.println("4. Display queues and counts");
-			System.out.println("5. End-of-day report and exit");
+			System.out.println("5. Terminate");
 			System.out.print("Choose option: ");
 
 			int choice;
@@ -44,8 +43,10 @@ public class Main {
 					break;
 
 				case 3:
-					// next = q.Board();
-					// System.out.println("Next passenger to board: " + next);
+                    if(q.countVIP() > 0)
+                        System.out.println("Front passenger: " + q.peek(1, "front"));
+					else
+						 System.out.println("Front passenger: " + q.peek(2, "front"));
 					break;
 
 				case 4:
@@ -53,7 +54,7 @@ public class Main {
 					break;
 
 				case 5:
-					System.out.println("End-of-day report written to 'end_of_day_report.txt'.");
+					System.out.println("Terminating the program, Thank you!.");
 					scanner.close();
 					System.exit(0);
 
@@ -63,6 +64,5 @@ public class Main {
 					break;
 			}
 		}
-
 	}
 }

@@ -37,7 +37,7 @@ public class Main {
 						type = scanner.nextInt();
 					} catch (Exception e) {
 						System.out.println("Invalid input. Please enter a valid number.");
-						return;
+						continue;
 					}
 					q.enqueue(name, type);
 					break;

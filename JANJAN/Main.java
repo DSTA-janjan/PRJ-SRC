@@ -1,3 +1,5 @@
+package JANJAN;
+
 import java.util.Scanner;
 
 public class Main {
@@ -35,6 +37,7 @@ public class Main {
 					int type;
 					try {
 						type = scanner.nextInt();
+						scanner.nextLine();
 					} catch (Exception e) {
 						System.out.println("Invalid input. Please enter a valid number.");
 						continue;

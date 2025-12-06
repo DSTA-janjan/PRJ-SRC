@@ -1,3 +1,5 @@
+package JANJAN;
+
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -45,7 +47,7 @@ public class Queue {
             String[] vip = new String[countVIP()];
             
             int vp = 0, rg = 0;
-            for (int i = 0; i > queue.size(); i++) {
+            for (int i = 0; i < queue.size(); i++) {
                 if (queue.get(i).getGroup() == 1) {
                     vip[vp] = queue.get(i).getName();
                     vp++;
@@ -232,7 +234,7 @@ public class Queue {
  * for the sake of cleanliness
  */
 class FileHandler {
-	private File queue = new File("Boarding.txt");
+	private File queue = new File("JANJAN/Boarding.txt");
 	
 	public FileHandler() {
 		

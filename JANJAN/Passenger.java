@@ -1,6 +1,4 @@
-
-
-
+package JANJAN;
 /**
  * The node i think
  */

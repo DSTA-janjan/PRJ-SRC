@@ -6,9 +6,9 @@ public class Main {
 
 	public static void main(String args[]) {
 		Queue q = new Queue();
-		 Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 
-         q.load();
+        q.load();
 		while (true) {
 			System.out.println();
 			System.out.println("=== AIRPORT BOARDING QUEUE ===");
@@ -37,9 +37,14 @@ public class Main {
 					int type;
 					try {
 						type = scanner.nextInt();
+					} catch(Exception e) {
+						System.out.println("Invalid input. Please enter 1 for VIP or 2 for REGULAR.");
 						scanner.nextLine();
-					} catch (Exception e) {
-						System.out.println("Invalid input. Please enter a valid number.");
+						continue;
+					}
+					if(type != 1 && type != 2) {
+						System.out.println("Invalid input. Please enter 1 for VIP or 2 for REGULAR.");
+						scanner.nextLine();
 						continue;
 					}
 					q.enqueue(name, type);

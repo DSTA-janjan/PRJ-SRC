@@ -57,7 +57,6 @@ public class Queue {
                     rg++;
                 }
             }
-            // System.out.printf("%d %d %d%n", reg.length, vp, rg);
             vp = rg = 0;
             for (int i = 0; i < queue.size(); i++, vp++, rg++) {
                 String holdr = "", holdv = "";
@@ -172,7 +171,6 @@ public class Queue {
      */
 	public void load() {
 		try {
-			// System.out.println("loaded");
 			queue = fh.load();
 		}
 		catch (IOException e) {}
@@ -255,7 +253,6 @@ class FileHandler {
 	 * @throws IOException
 	 */
 	public void write(Passenger p) throws IOException {
-		// Create the file if it somehow doesn't exist yet
 		if (!queue.exists()) {
 			queue.createNewFile();
 		}
@@ -271,9 +268,6 @@ class FileHandler {
                 queue.createNewFile();
             }
             
-            // System.out.println("mao ni");
-            // for (Passenger e : senger)
-            //     System.out.println(e.getName());
 
             FileWriter fw = new FileWriter(queue);
             for (Passenger nger : senger) {
@@ -287,29 +281,21 @@ class FileHandler {
     public void delete(Passenger p){
         LinkedList<Passenger> hold = new LinkedList<>();
         try {
-            // int i = 0;
             try (Scanner sc = new Scanner(new FileReader(queue))) {
                 
                 while (sc.hasNextLine()) {
-                    // System.out.println(i);
                     String[] holder = sc.nextLine().split("\\|");
                     String name = holder[0].trim();
                     String type = holder[1].trim();
-                    // System.out.println(name);
                     if (p.getName().equals(name)) {
-                        // System.out.println("hitakn ko");
                         continue;
                     }
                     hold.add(new Passenger(name, type));
-                    // i++;
                 }
             }  
         }
         catch (FileNotFoundException e){}
 
-        // System.out.println("mao ni");
-        // for (Passenger e : hold)
-        //     System.out.println(e.getName());
 
         overWrite(hold);
     }

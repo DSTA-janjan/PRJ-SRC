@@ -37,6 +37,7 @@ public class Main {
 					int type;
 					try {
 						type = scanner.nextInt();
+						scanner.nextLine();
 					} catch(Exception e) {
 						System.out.println("Invalid input. Please enter 1 for VIP or 2 for REGULAR.");
 						scanner.nextLine();

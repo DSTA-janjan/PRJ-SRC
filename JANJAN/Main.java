@@ -45,7 +45,6 @@ public class Main {
 					}
 					if(type != 1 && type != 2) {
 						System.out.println("Invalid input. Please enter 1 for VIP or 2 for REGULAR.");
-						scanner.nextLine();
 						continue;
 					}
 					q.enqueue(name, type);

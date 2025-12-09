@@ -234,7 +234,7 @@ public class Queue {
  * for the sake of cleanliness
  */
 class FileHandler {
-	private File queue = new File("JANJAN/Boarding.txt");
+	private File queue = new File("Boarding.txt");
 	
 	public FileHandler() {
 		

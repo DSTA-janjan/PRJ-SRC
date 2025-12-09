@@ -33,7 +33,7 @@ public class Main {
 					System.out.print("Enter passenger name: ");
 					String name = scanner.nextLine();
 
-					System.out.print("Enter priority (VIP/REGULAR): ");
+					System.out.print("Enter priority (1.VIP/2.REGULAR): ");
 					int type;
 					try {
 						type = scanner.nextInt();
